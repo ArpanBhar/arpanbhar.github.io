@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rank Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1 {
+            color: #f0f8ff;
+        }
+        label, input, button, p {
+            margin: 10px 0;
+        }
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #f0f8ff;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ddd;
+        }
+        #result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <h1>Rank Predictor</h1>
+    <label for="boardPercentage">Enter your Board Percentage:</label>
+    <input type="number" id="boardPercentage" step="0.01">
+    <label for="metMarks">Enter your MET Marks (out of 240):</label>
+    <input type="number" id="metMarks" step="0.01">
+    <button onclick="predictRank()">Predict Rank</button>
+    <p id="result"></p>
+
+    <script>
+        const xValues = [34, 42.6, 50.7, 52.025, 53.475, 63.75, 64.125, 64.65, 68.75, 70.45, 76, 77.875, 78.4, 83.425, 85.975];
+        const yValues = [31500, 21000, 18132, 17044, 15762, 6700, 4700, 4493, 3016, 2234, 950, 672, 604, 228, 108];
+
+        function linearInterpolation(x, xValues, yValues) {
+            if (x <= xValues[0]) {
+                return yValues[0];
+            } else if (x >= xValues[xValues.length - 1]) {
+                return yValues[yValues.length - 1];
+            }
+
+            for (let i = 0; i < xValues.length - 1; i++) {
+                if (x >= xValues[i] && x <= xValues[i + 1]) {
+                    const x1 = xValues[i];
+                    const x2 = xValues[i + 1];
+                    const y1 = yValues[i];
+                    const y2 = yValues[i + 1];
+                    return y1 + ((x - x1) * (y2 - y1)) / (x2 - x1);
+                }
+            }
+        }
+
+        function getBoardScore(percentage) {
+            if (percentage >= 95) return 100;
+            if (percentage >= 90) return 90;
+            if (percentage >= 85) return 80;
+            if (percentage >= 80) return 70;
+            if (percentage >= 75) return 60;
+            if (percentage >= 70) return 50;
+            if (percentage >= 65) return 40;
+            if (percentage >= 60) return 30;
+            if (percentage >= 55) return 20;
+            if (percentage >= 50) return 10;
+            return 0;
+        }
+
+        function predictRank() {
+            const boardPercentage = parseFloat(document.getElementById('boardPercentage').value);
+            const metMarks = parseFloat(document.getElementById('metMarks').value);
+
+            if (isNaN(boardPercentage) || isNaN(metMarks)) {
+                document.getElementById('result').innerText = 'Please enter valid numbers for both fields.';
+                return;
+            }
+
+            const boardScore = getBoardScore(boardPercentage);
+            const metPercentage = (metMarks / 240) * 100;
+            const bandScore = (boardScore + metPercentage) / 2;
+            const predictedRank = linearInterpolation(bandScore, xValues, yValues);
+
+            document.getElementById('result').innerText = `Your rank is predicted to be ${predictedRank}`;
+        }
+    </script>
+</body>
+</html>
