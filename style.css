@@ -83,22 +83,22 @@ h1 {
 .btn.primary { background: var(--peach); border-color: var(--peach); color: #1a1f3a; }
 .btn.primary:hover { background: #fff; border-color: #fff; color: #1a1f3a; }
 
-.hero-photo { justify-self: center; position: relative; }
+.hero-photo { justify-self: center; position: relative; width: min(100%, 360px); margin: 0 14px 14px 0; }
 .hero-photo::before {
   content: "";
   position: absolute; inset: 14px -14px -14px 14px;
   border: 2px solid var(--blue);
-  border-radius: 200px 200px 24px 24px;
+  border-radius: 180px 180px 24px 24px;
 }
 .hero-photo img {
   position: relative;
   display: block;
-  width: min(100%, 360px);
+  width: 100%;
   height: auto;
   aspect-ratio: 1 / 1.15;
   object-fit: cover;
   object-position: top;
-  border-radius: 200px 200px 24px 24px;
+  border-radius: 180px 180px 24px 24px;
   background: var(--surface);
 }
 
