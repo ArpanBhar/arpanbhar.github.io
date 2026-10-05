@@ -1,11 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arpan Bhar | Full-stack &amp; Security-minded Developer</title>
+  <meta name="description" content="Personal profile of Arpan Bhar, B.Tech IT student at Manipal Institute of Technology.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Hello</p>
+
+<header class="nav">
+  <a class="brand" href="#top">Arpan Bhar</a>
+  <nav aria-label="Main">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#interests">Interests</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hello">Hi, I'm</p>
+      <h1>Arpan Bhar</h1>
+      <p class="lead">Second-year Information Technology student who builds full-stack apps, games and security tools, and wins hackathons while doing it.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/profile.jpg" alt="Portrait of Arpan Bhar in a blue blazer and glasses" width="420" height="420">
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About me</h2>
+    <div class="about-grid">
+      <p>I'm pursuing a B.Tech in Information Technology at Manipal Institute of Technology. I like turning ideas into working software, whether that's a competitive programming platform, a multiplayer game or an authenticator app that stops fraudulent password resets.</p>
+      <p>I'm especially drawn to cybersecurity and OSINT. I helped design the challenges for Faceless, an open-source intelligence event at Tech Tatva, and my security-focused project placed in the Top 10 at M# Hackathon 2025.</p>
+    </div>
+    <ul class="stats">
+      <li><strong>8.15</strong><span>CGPA at MIT Manipal</span></li>
+      <li><strong>Top 6%</strong><span>AIR 1024 in Goldman Sachs India Hackathon 2026</span></li>
+      <li><strong>Top 10</strong><span>M# Hackathon 2025</span></li>
+      <li><strong>4</strong><span>Full projects on GitHub</span></li>
+    </ul>
+  </section>
+
+  <section id="education">
+    <h2>Education and experience</h2>
+    <ol class="timeline">
+      <li>
+        <time>2024 – 2028</time>
+        <h3>Manipal Institute of Technology</h3>
+        <p>B.Tech in Information Technology, CGPA 8.15. Manipal, Karnataka.</p>
+      </li>
+      <li>
+        <time>Tech Tatva</time>
+        <h3>Organizing Committee, Faceless</h3>
+        <p>Designed OSINT challenges for Faceless, an open-source intelligence event.</p>
+      </li>
+      <li>
+        <time>2017 – 2023</time>
+        <h3>Techno India Group Public School</h3>
+        <p>Class 12 (CBSE): 91.6%. Class 10 (CBSE): 95%. Chinsurah, West Bengal.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <article class="project featured">
+        <h3>CodeArena</h3>
+        <p>A full-stack competitive programming platform with user accounts, profiles and role-based contest administration. A FastAPI backend on a normalized MySQL schema serves a Flutter frontend, and Judge0 running in Docker judges multi-language submissions with verdicts like Accepted, Wrong Answer and Time Limit Exceeded.</p>
+        <p class="tags">Flutter Web, FastAPI, MySQL, Docker, Judge0</p>
+        <a href="https://github.com/ArpanBhar/CodeArena" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+      <article class="project">
+        <h3>Celestia</h3>
+        <p>A constellation gallery where users upload and organize astronomy photos. The Gemini API suggests which constellation each image shows.</p>
+        <p class="tags">Flutter Web, Firebase, Supabase</p>
+        <a href="https://github.com/ArpanBhar/celestia" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+      <article class="project">
+        <h3>Ultimate Tic Tac Toe</h3>
+        <p>An online multiplayer game with a Tkinter interface and socket networking. It starts ngrok tunnels automatically and creates join codes, so friends connect with no network setup.</p>
+        <p class="tags">Python, Tkinter, Sockets, ngrok</p>
+        <a href="https://github.com/ArpanBhar/Ultimate-TicTacToe" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+      <article class="project">
+        <h3>AuthApp</h3>
+        <p>An authenticator app that uses RSA public-key cryptography to confirm a password change really comes from the account owner, with biometric approval before account recovery.</p>
+        <p class="tags">Flutter, RSA Cryptography</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <div><dt>Languages</dt><dd><span>Python</span><span>C++</span><span>Java</span><span>Dart</span><span>JavaScript</span><span>Go</span></dd></div>
+      <div><dt>Frameworks</dt><dd><span>Flutter</span><span>FastAPI</span><span>React</span></dd></div>
+      <div><dt>Databases</dt><dd><span>MySQL</span><span>MongoDB</span><span>Firebase Firestore</span></dd></div>
+      <div><dt>Tools</dt><dd><span>Git</span><span>GitHub</span><span>Docker</span><span>Judge0</span><span>ngrok</span></dd></div>
+      <div><dt>Concepts</dt><dd><span>Data Structures &amp; Algorithms</span><span>OOP</span><span>DBMS</span><span>Computer Networks</span><span>REST APIs</span></dd></div>
+    </dl>
+  </section>
+
+  <section id="interests">
+    <h2>Interests</h2>
+    <ul class="interests">
+      <li><h3>Competitive programming</h3><p>Problem solving and building the judges behind it.</p></li>
+      <li><h3>Cybersecurity and OSINT</h3><p>Attack detection, authentication and puzzle design.</p></li>
+      <li><h3>Astronomy</h3><p>Constellations, and software that helps identify them.</p></li>
+      <li><h3>Games and hackathons</h3><p>Multiplayer games and building fast under pressure.</p></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="contact-intro">Open to internships, collaborations and hackathon teams. The quickest way to reach me is email.</p>
+    <ul class="contact-list">
+      <li><span>Email</span><a href="mailto:arpanbhar55@gmail.com">arpanbhar55@gmail.com</a></li>
+      <li><span>Phone</span><a href="tel:+916290055298">+91 62900 55298</a></li>
+      <li><span>LinkedIn</span><a href="https://linkedin.com/in/arpan-bhar" target="_blank" rel="noopener">linkedin.com/in/arpan-bhar</a></li>
+      <li><span>GitHub</span><a href="https://github.com/ArpanBhar" target="_blank" rel="noopener">github.com/ArpanBhar</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Arpan Bhar. Built with HTML and CSS.</p>
+</footer>
+
 </body>
 </html>
